@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 430" role="img" aria-label="Weekly Updates in Oncology">
+<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#eaf7ff"/><stop offset=".35" stop-color="#fff"/><stop offset="1" stop-color="#eef8ff"/></linearGradient><linearGradient id="b" x1="0" x2="1"><stop stop-color="#163f70"/><stop offset="1" stop-color="#4ca0c9"/></linearGradient></defs>
+<rect width="1600" height="430" fill="url(#bg)"/>
+<path d="M0 0h165C115 120 95 260 210 430H0z" fill="#063461"/><path d="M25 0h95C75 125 72 275 178 430h-35C42 287 40 132 78 0z" fill="#6eb6dc" opacity=".75"/><path d="M0 220c80 20 135 90 190 210" fill="none" stroke="#d1a756" stroke-width="5"/>
+<g transform="translate(165 70)"><circle cx="105" cy="105" r="96" fill="#fff" stroke="#073563" stroke-width="5"/><circle cx="105" cy="105" r="86" fill="none" stroke="#d1a756" stroke-width="3"/><text x="105" y="130" text-anchor="middle" font-family="Georgia,serif" font-size="72" font-weight="700" fill="#073563">m<tspan fill="#3a91bb">AI</tspan>l</text><path d="M120 61l20-20 22 0m-22 0v-17m0 17l22 20m0-20h18" fill="none" stroke="#3a91bb" stroke-width="5"/><circle cx="181" cy="41" r="6" fill="#3a91bb"/></g>
+<line x1="405" y1="80" x2="405" y2="335" stroke="#d1a756" stroke-width="2"/>
+<text x="1000" y="155" text-anchor="middle" font-family="Georgia,serif" font-size="82" font-weight="700" fill="#062b5c">WEEKLY UPDATES</text>
+<text x="1000" y="240" text-anchor="middle" font-family="Georgia,serif" font-size="76" fill="#347fa6">IN ONCOLOGY</text>
+<line x1="660" y1="282" x2="800" y2="282" stroke="#d1a756" stroke-width="2"/><line x1="1200" y1="282" x2="1340" y2="282" stroke="#d1a756" stroke-width="2"/>
+<text x="1000" y="293" text-anchor="middle" font-family="Georgia,serif" font-size="27" font-style="italic" fill="#0c315d">by Michalis Liontos’ AI agents</text>
+<g font-family="Arial,sans-serif" font-size="18" letter-spacing="3" fill="#0c315d"><text x="650" y="355">EVIDENCE</text><text x="850" y="355">TRIALS</text><text x="1020" y="355">BIOMARKERS</text><text x="1280" y="355">PRACTICE</text></g>
+<g fill="none" stroke="#72a9c7" opacity=".45"><circle cx="1500" cy="110" r="100"/><circle cx="1500" cy="110" r="145"/><path d="M1360 40q130 80 230 0M1370 160q120-80 220 0"/></g></svg>
