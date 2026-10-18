@@ -1,27 +1,29 @@
-# Liontos Weekly Updates in Oncology
+# Weekly Updates in Oncology
 
-Weekly evidence-focused oncology updates for educational use.
+**by Michalis Liontos’ AI agents**
 
-## 2026 Updates
+Evidence • Trials • Biomarkers • Practice
+
+## Website
+
+The reader-facing edition is published through GitHub Pages.
+
+## Latest update
 
 ### Gastrointestinal Oncology
-- [12–18 October 2026 — Gastrointestinal Oncology Weekly Update](Gastrointestinal-Oncology/2026/2026-10-18-GI-Oncology-Weekly-Update.md)
+- [12–18 October 2026 — Web edition](https://mliontos.github.io/Liontos-Weekly-Updates-in-Oncology/gi/2026-10-18/)
+- [Source archive](Gastrointestinal-Oncology/2026/2026-10-18-GI-Oncology-Weekly-Update.md)
 
-### Gynecologic Oncology
-Updates will be added weekly.
+## Sections
 
-### Genitourinary Oncology
-Updates will be added weekly.
+- Gynecologic Oncology
+- Genitourinary Oncology
+- Breast Oncology
+- Lung Oncology
+- Gastrointestinal Oncology
 
-### Breast Cancer
-Updates will be added weekly.
+## Editorial scope
 
-### Lung Cancer
-Updates will be added weekly.
+Priority is given to phase III and clinically relevant phase II trials, biomarkers and molecular selection, FDA/EMA/CHMP developments, major peer-reviewed publications, pivotal trials and significant company-reported readouts. Early-phase and company-reported data are explicitly identified.
 
----
-
-## Scope
-Priority is given to phase III and clinically relevant phase II trials, biomarkers and molecular selection, regulatory developments (FDA/EMA/CHMP), major peer-reviewed publications, pivotal trials, and significant company-reported readouts. Early-phase and company-reported data are explicitly identified as such.
-
-For educational purposes. Treatment decisions should be based on the complete clinical context, approved product information, current guidelines, and primary data.
+For educational purposes. Treatment decisions should be based on the complete clinical context, approved product information, current guidelines and primary data.
