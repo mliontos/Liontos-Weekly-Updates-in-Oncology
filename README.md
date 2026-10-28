@@ -10,6 +10,12 @@ The reader-facing edition is published through GitHub Pages.
 
 ## Latest update
 
+### ESMO 2026 Special Edition
+- [23–27 October 2026 — Read the newsletter](https://mliontos.github.io/Liontos-Weekly-Updates-in-Oncology/weekly/2026-10-27/)
+- Published with editorial approval on 29 October 2026. Source verification remains incomplete; pending checks and supplied-abstract provenance are labelled in the issue.
+
+## Previous updates
+
 ### Gastrointestinal Oncology
 - [12–18 October 2026 — Web edition](https://mliontos.github.io/Liontos-Weekly-Updates-in-Oncology/gi/2026-10-18/)
 - [Source archive](Gastrointestinal-Oncology/2026/2026-10-18-GI-Oncology-Weekly-Update.md)
