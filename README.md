@@ -10,6 +10,12 @@ The reader-facing edition is published through GitHub Pages.
 
 ## Latest update
 
+### Oncology Weekly — 8–14 November 2026
+- [8–14 November 2026 — Read the newsletter](https://mliontos.github.io/Liontos-Weekly-Updates-in-Oncology/weekly/2026-11-15/)
+- Published 15 November 2026, with 13 selected papers and primary-source links.
+
+## Previous updates
+
 ### ESMO 2026 Special Edition
 - [23–27 October 2026 — Read the newsletter](https://mliontos.github.io/Liontos-Weekly-Updates-in-Oncology/weekly/2026-10-27/)
 - Published with editorial approval on 29 October 2026. Source verification remains incomplete; pending checks and supplied-abstract provenance are labelled in the issue.
