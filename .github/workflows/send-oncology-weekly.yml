@@ -1,0 +1,81 @@
+name: Send Oncology Weekly via Brevo
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_date:
+        description: "Published issue date (YYYY-MM-DD)"
+        required: true
+        default: "2026-11-22"
+        type: string
+      confirmation:
+        description: "Type SEND to create and send the campaign; any other value is a dry run"
+        required: true
+        default: "PREVIEW"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: brevo-oncology-weekly-${{ inputs.issue_date }}
+  cancel-in-progress: false
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate and optionally send
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_SENDER_EMAIL: ${{ vars.BREVO_SENDER_EMAIL }}
+          BREVO_SENDER_NAME: ${{ vars.BREVO_SENDER_NAME }}
+          ISSUE_DATE: ${{ inputs.issue_date }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os, re, urllib.request, urllib.error
+          date=os.environ['ISSUE_DATE']
+          if not re.fullmatch(r'20\d{2}-\d{2}-\d{2}',date):
+              raise SystemExit('Issue date must be YYYY-MM-DD')
+          datetime.date.fromisoformat(date)
+          base='https://mliontos.github.io/Liontos-Weekly-Updates-in-Oncology/'
+          url=f'{base}weekly/{date}/'
+          with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'OncologyWeeklyPublisher/1.0'}),timeout=30) as response:
+              if response.status!=200: raise SystemExit('Issue is not publicly available')
+          print('Verified published issue:',url)
+          if os.environ['CONFIRMATION']!='SEND':
+              print('PREVIEW ONLY: no Brevo campaign created or sent.')
+              raise SystemExit(0)
+          key=os.environ.get('BREVO_API_KEY')
+          sender=os.environ.get('BREVO_SENDER_EMAIL')
+          if not key or not sender:
+              raise SystemExit('Set BREVO_API_KEY secret and BREVO_SENDER_EMAIL repository variable first.')
+          name=os.environ.get('BREVO_SENDER_NAME') or 'Oncology Weekly'
+          subject=f'Oncology Weekly | {date} — Evidence, Trials & Regulatory Updates'
+          html=f"""<!doctype html><html><body style="font-family:Arial,sans-serif;color:#10243d;max-width:620px;margin:auto;padding:24px">
+          <h1 style="color:#082f61">Oncology Weekly</h1>
+          <p style="font-size:17px">Issue {date} · Evidence, Trials, Biomarkers & Practice</p>
+          <p>The latest issue is now available, featuring major oncology studies, regulatory milestones and selected scientific papers.</p>
+          <p><a href="{url}" style="display:inline-block;background:#082f61;color:white;padding:13px 20px;text-decoration:none;border-radius:5px">Read the latest issue</a></p>
+          <p style="font-size:12px;color:#637487">You are receiving this email because you subscribed to Oncology Weekly.</p>
+          <p style="font-size:12px"><a href="{{{{ unsubscribe }}}}">Unsubscribe</a></p>
+          </body></html>"""
+          payload={'name':f'Oncology Weekly {date}','subject':subject,
+                   'sender':{'name':name,'email':sender},
+                   'recipients':{'listIds':[3]},'htmlContent':html}
+          def api(method,path,data=None):
+              body=json.dumps(data).encode() if data is not None else None
+              req=urllib.request.Request('https://api.brevo.com/v3/'+path,data=body,
+                   headers={'api-key':key,'accept':'application/json','content-type':'application/json'},method=method)
+              try:
+                  with urllib.request.urlopen(req,timeout=40) as response:
+                      return json.loads(response.read() or b'{}')
+              except urllib.error.HTTPError as exc:
+                  raise SystemExit(f'Brevo API error {exc.code}: {exc.read().decode()[:600]}')
+          campaign=api('POST','emailCampaigns',payload)
+          cid=campaign['id']
+          print('Created campaign ID:',cid)
+          api('POST',f'emailCampaigns/{cid}/sendNow',{})
+          print('Brevo accepted sendNow for campaign ID:',cid)
+          PY
